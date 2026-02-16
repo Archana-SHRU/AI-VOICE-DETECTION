@@ -1,0 +1,10 @@
+fastapi
+uvicorn
+pydantic
+python-dotenv
+numpy
+librosa
+pydub
+soundfile
+scikit-learn
+joblib
