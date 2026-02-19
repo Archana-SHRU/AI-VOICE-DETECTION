@@ -104,7 +104,14 @@ requirements.txt
 voice_detector.pkl
 README.md
 
+**
 
 **pip install -r requirements.txt
 uvicorn app.main:app --reload
 **
+
+
+📌 Conclusion**
+This project demonstrates a practical AI-driven approach to tackling the growing threat of AI-generated voice deepfakes across multiple languages.
+
+It combines audio signal processing and machine learning to provide a scalable and deployable detection system.
