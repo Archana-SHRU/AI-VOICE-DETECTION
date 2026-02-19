@@ -86,3 +86,25 @@ This system can be useful for:
 {
   "audio_base64": "BASE64_ENCODED_AUDIO"
 }
+output:
+
+{
+  "result": "AI",
+  "confidence": 0.87
+}
+
+**PROJECT STRUTURE**
+app/
+ ├── __init__.py
+ ├── main.py
+ ├── model.py
+ ├── audio_utils.py
+
+requirements.txt
+voice_detector.pkl
+README.md
+
+
+**pip install -r requirements.txt
+uvicorn app.main:app --reload
+**
