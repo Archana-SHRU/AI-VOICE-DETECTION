@@ -1,17 +1,44 @@
 # 🎙 AI Generated Voice Detection API
 
-This project detects whether a given voice sample is **AI-generated** or **Human** using audio feature extraction and a machine learning classifier.
+## 🧩 Problem Statement
+
+With the rapid advancement of AI voice synthesis technologies, it has become increasingly difficult to distinguish between **human voices** and **AI-generated voices**.
+
+This creates serious concerns in:
+
+- Deepfake voice scams
+- Fake political speeches
+- Identity fraud
+- Misinformation spread
+- Voice-based authentication systems
+
+There is a need for a reliable system that can automatically detect whether a voice sample is real or AI-generated.
 
 ---
 
-## 🚀 Overview
+## 💡 Proposed Solution
 
-The API accepts a **Base64-encoded MP3 audio file** and returns:
+We built a REST API that analyzes an audio sample and determines whether the voice is:
 
-- Classification result (AI / Human)
-- Confidence score (0.0 – 1.0)
+- 🎤 Human
+- 🤖 AI-Generated
 
-Supported languages:
+The system works by:
+
+1. Accepting a Base64-encoded MP3 audio file.
+2. Converting audio to a standardized format (mono, fixed duration).
+3. Extracting key audio features (MFCC, Chroma, Spectral Centroid, Zero Crossing Rate).
+4. Using a trained Machine Learning classifier to predict authenticity.
+5. Returning a JSON response with:
+   - Result (AI / Human)
+   - Confidence Score (0.0 – 1.0)
+
+---
+
+## 🌍 Supported Languages
+
+The model is designed to work across multiple Indian languages:
+
 - Tamil
 - English
 - Hindi
@@ -20,13 +47,16 @@ Supported languages:
 
 ---
 
-## 🧠 How It Works
+## 🚀 Who Can Use This?
 
-1. User sends Base64 audio to the API.
-2. Audio is decoded and converted to mono (fixed sample rate).
-3. Audio features (MFCC, Chroma, Spectral Centroid, Zero Crossing Rate) are extracted.
-4. A trained ML model classifies the voice.
-5. JSON response is returned.
+This system can be useful for:
+
+- 🏦 Banks & Financial Institutions (prevent voice fraud)
+- 📰 Media Platforms (detect fake audio clips)
+- 🏛 Government Agencies (deepfake detection)
+- 📞 Call Centers (voice authentication validation)
+- 🔐 Cybersecurity Teams (audio threat analysis)
+- 🎓 Research & AI Ethics Studies
 
 ---
 
@@ -34,19 +64,23 @@ Supported languages:
 
 - Python
 - FastAPI
-- Librosa
+- Librosa (Audio Processing)
 - Pydub
 - Scikit-learn
 - Joblib
 - Uvicorn
 
 ---
-
 ## 📡 API Endpoint
 
 ### POST `/detect`
 
 ### Input (JSON)
+
+```json
+{
+  "audio_base64": "BASE64_ENCODED_AUDIO"
+}
 
 ```json
 {
