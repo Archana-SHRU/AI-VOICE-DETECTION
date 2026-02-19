@@ -17,7 +17,10 @@ def extract_features(audio_path: str) -> np.ndarray:
     audio = audio.set_channels(1).set_frame_rate(SR)
 
     samples = np.array(audio.get_array_of_samples()).astype(np.float32)
-
+    
+    # 3️⃣ Fix length (VERY IMPORTANT) ✅ FIXED
+    if len(samples) > TARGET_LEN:
+        samples = samples[:TARGET_LEN]
     # 2️⃣ Normalize (safe)
     samples = samples / (np.max(np.abs(samples)) + 1e-9)
 
@@ -42,3 +45,4 @@ def extract_features(audio_path: str) -> np.ndarray:
     ])
 
     return features
+
